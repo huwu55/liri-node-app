@@ -1,4 +1,5 @@
 require("dotenv").config();
+var axios = require("axios");
 var Spotify = require('node-spotify-api');
 var keys = require('./keys.js');
 var inputs = process.argv;
@@ -7,8 +8,23 @@ var spotify = new Spotify(keys.spotify);
 // console.log(keys.spotify);
 // console.log(spotify.credentials.id);
 // console.log(spotify.credentials.secret);
+
+var bandsintown = keys.bandsintown;
+//console.log(bandsintown);
+
 function concertThis(){
     console.log("Concert This");
+    var band = inputs[3];
+
+    console.log(band);
+    axios.get("https://rest.bandsintown.com/artists/"+band+"/events?app_id="+bandsintown).then(
+        function(result){
+            console.log(result);
+        },
+        function(err){
+            console.log(err);
+        }
+    );
 }
 
 function spotifyThisSong(){

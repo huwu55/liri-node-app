@@ -5,6 +5,9 @@ var spotify = {
   secret: process.env.SPOTIFY_SECRET
 };
 
+var bandsintown = process.env.BANDSINTOWN_API;
+
 module.exports = {
-  spotify: spotify
+  spotify: spotify,
+  bandsintown : bandsintown
 };
