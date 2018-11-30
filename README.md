@@ -12,7 +12,7 @@ liri.js can take in one of the following commands:
 
 ### What Each Command Should Do
 
-`node liri.js concert-this '<artist/band name here>'` then the following information about each event to the terminal:
+`node liri.js concert-this '<artist/band name here>'` then the following information about the event will show in the terminal:
 
 * Name of the venue
 * Venue location
@@ -21,7 +21,7 @@ liri.js can take in one of the following commands:
 ![Image of concert-this output](./images/concertThis.png)
 
 
-`node liri.js spotify-this-song '<song name here>'` This will show the following information about the song in your terminal/bash window:
+`node liri.js spotify-this-song '<song name here>'` This will show the following information about the song in the terminal/bash window:
 
 * Artist(s)
 * The song's name
@@ -33,7 +33,7 @@ If no song is provided then the program will default to "The Sign" by Ace of Bas
 ![Image of spotify-this-song output](./images/spotifyThisSong.png)
 
 
-`node liri.js movie-this '<movie name here>'` This will output the following information to your terminal/bash window:
+`node liri.js movie-this '<movie name here>'` This will output the following information to the terminal/bash window:
 
 * Title of the movie.
 * Year the movie came out.
