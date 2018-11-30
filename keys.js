@@ -1,4 +1,4 @@
-console.log('this is loaded');
+//console.log('this is loaded');
 
 var spotify = {
   id: process.env.SPOTIFY_ID,
@@ -7,7 +7,10 @@ var spotify = {
 
 var bandsintown = process.env.BANDSINTOWN_API;
 
+var omdb = process.env.OMDB_API;
+
 module.exports = {
   spotify: spotify,
-  bandsintown : bandsintown
+  bandsintown : bandsintown,
+  omdb: omdb
 };
