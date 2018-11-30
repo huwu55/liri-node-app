@@ -1,3 +1,4 @@
+// Include all packages for later use
 require("dotenv").config();
 var moment = require('moment');
 var axios = require("axios");
@@ -6,15 +7,15 @@ var Spotify = require('node-spotify-api');
 var keys = require('./keys.js');
 var inputs = process.argv;
 
+// get api keys from keys.js
 var spotify = new Spotify(keys.spotify);
 var bandsintown = keys.bandsintown;
 var omdb = keys.omdb;
 
+// get the most recent event info from Bandsintown with specified band/artist name
 function concertThis(band){
     //console.log("Concert This");
-    //var band = inputs[3];
-    //if (band === undefined) console.log("no band entered");
-    //console.log(band);
+
     axios.get("https://rest.bandsintown.com/artists/"+band+"/events?app_id="+bandsintown).then(
         results => {
             console.log("Name of the venue: " + results.data[0].venue.name);
@@ -31,9 +32,11 @@ function concertThis(band){
     );
 }
 
+// get the first result of the specified song name from spotify
+// if song name is undefined, search the song "The Sign", artist "Ace of Base"
 function spotifyThisSong(song){
     //console.log("Spotify This Song");
-    //var song;
+
     if (song === undefined){
         song = "The Sign Ace of Base";
     }
@@ -56,9 +59,10 @@ function spotifyThisSong(song){
         });
 }
 
+// get movie info of the speicified movie name from OMBD
+// if movie name is undefined, search for "Mr. Nobody"
 function movieThis(movie){
     //console.log("Movie This");
-    //var movie;
 
     if (movie === undefined){
         movie = "Mr. Nobody";
@@ -84,6 +88,7 @@ function movieThis(movie){
     );
 }
 
+// get command and movie/song/artist from random.txt using fs, then run liri
 function doWhatItSays(){
     //console.log("Do What It Says");
     fs.readFile("random.txt", "utf8", function(error, data){
@@ -98,6 +103,7 @@ function doWhatItSays(){
     });
 }
 
+// liri doesn't get run properly, this will run
 function liriInstruction(){
     console.log("To run Liri: ");
     console.log("node liri concert-this '<artist/band name here>'");
@@ -106,10 +112,11 @@ function liriInstruction(){
     console.log("node liri do-what-it-says");
 }
 
-function recordIt(){
+// function recordIt(){
 
-}
+// }
 
+// run liri
 function runLiri(command, str){
     switch(command){
         case "concert-this":
@@ -133,4 +140,5 @@ function runLiri(command, str){
     }
 }
 
+// start
 runLiri(inputs[2], inputs[3]);
