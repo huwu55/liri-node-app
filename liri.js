@@ -103,7 +103,7 @@ function doWhatItSays(){
     });
 }
 
-// liri doesn't get run properly, this will run
+// if liri doesn't get run properly, this will run
 function liriInstruction(){
     console.log("To run Liri: ");
     console.log("node liri concert-this '<artist/band name here>'");
